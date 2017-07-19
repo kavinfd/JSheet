@@ -10,12 +10,12 @@ import java.nio.file.Paths;
  * Created by kavin on 18/07/17.
  */
 public class Keys {
-    public final String googleServiceAccountPath;
+    public final String googleServiceAccountName;
     public final File googleServiceAccountKey;
     public Keys(){
         try {
-            this.googleServiceAccountPath = Files.readAllLines(Paths.get("keys/google_sheet_service_account.txt"), Charset.defaultCharset()).get(0);
-            this.googleServiceAccountKey = new File("key/google_sheet_service_account_key.p12");
+            this.googleServiceAccountName = Files.readAllLines(Paths.get("keys/google_sheet_service_account.txt"), Charset.defaultCharset()).get(0);
+            this.googleServiceAccountKey = new File("keys/google_sheet_service_account_key.p12");
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
