@@ -15,5 +15,7 @@ public @interface Sheet {
 
     int rowOffset() default 0;
 
+    String rowRange() default "";
+
     boolean customHeader() default false;
 }

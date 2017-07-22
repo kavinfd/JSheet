@@ -13,6 +13,7 @@ import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.sheets.v4.Sheets;
 import com.google.api.services.sheets.v4.SheetsScopes;
 import com.google.api.services.sheets.v4.model.ValueRange;
+import com.jsheet.dataAccess.Dao;
 import com.jsheet.helper.GoogleSheetHelper;
 import org.junit.Test;
 
@@ -30,20 +31,25 @@ import java.util.List;
  * Created by kavin on 18/07/17.
  */
 public class GoogleParserTest {
-
+    public enum ordinal{
+        A,B,C,D,E,F,G
+    }
     @Test
     public void testGoogleSheets() throws Exception {
 // Build a new authorized API client service.
-        Sheets service = new GoogleSheetHelper().getSheetsService();
-
-        // Prints the names and majors of students in a sample spreadsheet:
-        // https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-        String spreadsheetId = "1OzLYTbtpqSB46QiOgodnT6TteQ5GqoXKqz04mrTUZQQ";
-        String range = "Sheet1!A:Z";
-        ValueRange response = service.spreadsheets().values()
-                .get(spreadsheetId, range)
-                .execute();
-        List<List<Object>> values = response.getValues();
-        System.out.println(values);
+//        Dao dao = new Dao();
+//        dao.getData("adf", sheet1.class);
+//      Sheets service = new GoogleSheetHelper().getSheetsService();
+        System.out.print(ordinal.B.ordinal());
+//
+//        // Prints the names and majors of students in a sample spreadsheet:
+//        // https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+//        String spreadsheetId = "1OzLYTbtpqSB46QiOgodnT6TteQ5GqoXKqz04mrTUZQQ";
+//        String range = "Sheet1!A:Z";
+//        ValueRange response = service.spreadsheets().values()
+//                .get(spreadsheetId, range)
+//                .execute();
+//        List<List<Object>> values = response.getValues();
+//       System.out.println(values);
     }
 }
