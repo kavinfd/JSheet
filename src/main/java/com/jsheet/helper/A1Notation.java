@@ -34,7 +34,7 @@ public class A1Notation {
         if (value < 1) {
             throw new RuntimeException("Alpha notation value must be greater than or equal to 1");
         }
-        String memo = "ZABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String memo = "ZABCDEFGHIJKLMNOPQRSTUVWXY";
         String result = "";
         while (value > 0) {
             Integer index = value % 26;
