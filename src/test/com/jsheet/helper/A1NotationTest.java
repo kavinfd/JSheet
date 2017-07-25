@@ -3,7 +3,11 @@ package com.jsheet.helper;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 /**
@@ -32,5 +36,15 @@ public class A1NotationTest {
         assertThat(A1Notation.getNumber(A1Notation.getAlphaNotation(2144))).isEqualTo(2144);
         assertThat(A1Notation.getNumber(A1Notation.getAlphaNotation(10324))).isEqualTo(10324);
         assertThat(A1Notation.getNumber(A1Notation.getAlphaNotation(12340))).isEqualTo(12340);
+    }
+
+    @Test
+    public void testGetAlphaRange() throws Exception {
+        List<String> alphaRange = A1Notation.getAlphaRange("A:AB").collect(Collectors.toList());
+        assertThat(alphaRange).containsOnly("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "AA", "AB");
+        alphaRange = A1Notation.getAlphaRange("Z:Z").collect(Collectors.toList());
+        assertThat(alphaRange).containsOnly("Z");
+        alphaRange = A1Notation.getAlphaRange("T:Z").collect(Collectors.toList());
+        assertThat(alphaRange).containsOnly("T", "U", "V", "W", "X", "Y", "Z");
     }
 }

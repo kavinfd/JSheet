@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import static java.lang.String.format;
+
 /**
  * Created by kavin on 22/07/17.
  */
@@ -18,7 +20,7 @@ public class A1Notation {
         if ('A' <= character.charValue() && 'Z' >= character.charValue()) {
             return character.charValue() - 'A' + 1;
         }
-        throw new RuntimeException(String.format("Character `%s` not in range", character));
+        throw new RuntimeException(format("Character `%s` not in range", character));
     }
 
     public static Integer getNumber(String a1Notation) {
@@ -38,10 +40,35 @@ public class A1Notation {
         String result = "";
         while (value > 0) {
             Integer index = value % 26;
-            result = memo.charAt(index)+result;
+            result = memo.charAt(index) + result;
             value--;
             value /= 26;
         }
         return result;
+    }
+
+    public static Stream<String> getAlphaRange(String rowRange) {
+        Integer[] result = getRowRange(rowRange);
+        Integer start = result[0];
+        Integer end = result[1];
+        return StreamUtils
+                .takeWhile(Stream
+                        .iterate(start, i -> i + 1), i -> i <= end)
+                .map(A1Notation::getAlphaNotation);
+    }
+
+    public static void assertTrue(Boolean condition, String msg) {
+        if (!condition) {
+            throw new RuntimeException(msg);
+        }
+    }
+
+    private static Integer[] getRowRange(String rowRange) {
+        String[] range = rowRange.split(":");
+        assertTrue(range.length == 2, format("Invalid Row range. %s should be limited to only two column like \"A:BS\"", rowRange));
+        Integer first = getNumber(range[0]);
+        Integer second = getNumber(range[1]);
+        assertTrue(first <= second, format("Row range \"%s\" should be in incremental order", rowRange));
+        return Arrays.asList(first, second).toArray(new Integer[0]);
     }
 }
