@@ -16,5 +16,4 @@ script:
   - ./gradlew test
 
 after_success:
-  - bash $HOME/.test.sh
-  - bash <(curl -s https://codecov.io/bash) -f ./build/jacocoReports/test/jacocoTestReport.xml
+  - bash <(curl -s https://codecov.io/bash) -f /home/travis/build/kavinfd/JSheet/build/jacocoReports/test/jacocoTestReport.xml
