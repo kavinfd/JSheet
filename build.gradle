@@ -1,8 +1,13 @@
+plugins {
+    id 'jacoco'
+    id 'com.github.kt3k.coveralls' version '2.6.3'
+}
+
 group 'com.jsheet'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-
+apply plugin: "jacoco"
 sourceCompatibility = 1.8
 
 repositories {
@@ -23,5 +28,20 @@ sourceSets {
         java{
             srcDirs = ["src/test"]
         }
+    }
+}
+
+jacoco {
+    toolVersion = "0.7.6.201602180812"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+    println("testhere")
+    println("$buildDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.destination "${buildDir}/jacocoHtml"
     }
 }
