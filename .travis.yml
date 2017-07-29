@@ -1,3 +1,15 @@
 language: java
 sudo: false
 dist: trusty
+jdk:
+  - oraclejdk8
+branches:
+  only:
+    - master
+cache:
+  directories:
+  - $HOME/.gradle
+
+before_script:
+  - git fetch
+  - git checkout origin/master
