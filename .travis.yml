@@ -14,5 +14,5 @@ script:
   - ./gradlew test
 
 after_success:
-  - cd $HOME
+  - cd $HOME/build/jacocoReports/test/
   - bash <(curl -s https://codecov.io/bash)
