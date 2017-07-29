@@ -10,6 +10,7 @@ apply plugin: 'java'
 apply plugin: "jacoco"
 sourceCompatibility = 1.8
 
+
 repositories {
     mavenCentral()
 }
@@ -33,9 +34,7 @@ sourceSets {
 
 jacoco {
     toolVersion = "0.7.6.201602180812"
-    reportsDir = file("$buildDir/customJacocoReportDir")
-    println("testhere")
-    println("$buildDir")
+    reportsDir = file("$buildDir/customReports")
 }
 
 jacocoTestReport {
@@ -44,3 +43,11 @@ jacocoTestReport {
         html.destination "${buildDir}/jacocoHtml"
     }
 }
+
+task moveTestReport (type: Copy) {
+    from("$buildDir/customReports/test/jacocoTestReport.xml")
+    into("$buildDir/reports/cobertura/jacocoTestReport.xml")
+    rename ("$buildDir/reports/cobertura/jacocoTestReport.xml",
+            "$buildDir/reports/cobertura/coverage.xml")
+}
+jacocoTestReport.finalizedBy(moveTestReport)
