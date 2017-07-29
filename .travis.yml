@@ -9,7 +9,9 @@ branches:
 cache:
   directories:
   - $HOME/.gradle
-  
+
+repo_token:
+  secure: "eWofWze3n3jarpTHrwS9CCLp6pLAKWwZo2rCzWKABcE+j+NnLAwU2wdbadmm/jacyIHKE025jnJbF/l6CUq9FzNaiS7N+jnU7oQ8RPgBxpgJYpy+FOWKaAfK1F9lNjgfOoQEdJyiTCGnzmy+eQQTaiWeGulfA70erXTtl6fBE6xcmjaLdl+RIAsreYitWC+6TiD8ZkCFrYwi6Gpg/+ntLj0ziC9wYwENZKiVZ5VWRmVUD8Rdupnv6VKX/39uiGHlusAWXHkd4SKbZKU4kh4RklDMwvMzCuUrQJ4MoiogYp+O7Sy3DuP1cpZ29688cufzfmIquCJcmwJuaBsYYoZOMR6T5BPVttFnaOnZ70OaiYFx8enTNPseKkzS/QAfTMoV6ATmvDEN3UN5pSu8ewy1Fl86ggewPgORcWIvYHIDaS/Ml+ib1oOFC2CfgDWf6zWwXKLzxfby5LwY5ygMkI80lFpMbpVoXFo8QPDyuckEYvSFjiXcBp3FpktgL9MC7iuKSqeip+42F/vAyT6d3FVzijky5CIpyhrNz8RSTY9LL3BFJcbs2zgBGz0eztqamHlpGp2aiOP83gLUlR7sizS6ZVBmSLgGFM4rBLOdjw0EltugYVmYsXBvzQsSf8eUXQT6ZAPiXcGFkyJlOQQoThvwgl7ejvKMNQUtSx+XHORD41Y="
 script:
   - ./gradlew test
   - ./gradlew jacocoTestReport coveralls
