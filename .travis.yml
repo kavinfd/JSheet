@@ -3,16 +3,18 @@ sudo: false
 dist: trusty
 jdk:
   - oraclejdk8
+
 branches:
   only:
     - master
+
 cache:
   directories:
   - $HOME/.gradle
 
 script:
+  - ./test.sh
   - ./gradlew test
 
 after_success:
-  - cd $HOME/build/jacocoReports/test/
   - bash <(curl -s https://codecov.io/bash)
