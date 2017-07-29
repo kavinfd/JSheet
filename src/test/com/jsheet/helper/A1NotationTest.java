@@ -21,7 +21,7 @@ public class A1NotationTest {
         assertThat(A1Notation.getNumber("Z")).isEqualTo(26);
         assertThat(A1Notation.getNumber("AA")).isEqualTo(27);
         assertThat(A1Notation.getNumber("AZ")).isEqualTo(52);
-        System.out.print("test here");
+        throw new RuntimeException("error");
     }
 
     @Test
