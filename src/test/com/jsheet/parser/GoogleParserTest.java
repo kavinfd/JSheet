@@ -39,17 +39,16 @@ public class GoogleParserTest {
 // Build a new authorized API client service.
 //        Dao dao = new Dao();
 //        dao.getData("adf", sheet1.class);
-//      Sheets service = new GoogleSheetHelper().getSheetsService();
-        System.out.print(ordinal.B.ordinal());
+      Sheets service = new GoogleSheetHelper().getSheetsService();
 //
 //        // Prints the names and majors of students in a sample spreadsheet:
 //        // https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-//        String spreadsheetId = "1OzLYTbtpqSB46QiOgodnT6TteQ5GqoXKqz04mrTUZQQ";
-//        String range = "Sheet1!A:Z";
-//        ValueRange response = service.spreadsheets().values()
-//                .get(spreadsheetId, range)
-//                .execute();
-//        List<List<Object>> values = response.getValues();
-//       System.out.println(values);
+        String spreadsheetId = "1OzLYTbtpqSB46QiOgodnT6TteQ5GqoXKqz04mrTUZQQ";
+        String range = "Sheet1!A:Z";
+        ValueRange response = service.spreadsheets().values()
+                .get(spreadsheetId, range)
+                .execute();
+        List<List<Object>> values = response.getValues();
+       System.out.println(values);
     }
 }
