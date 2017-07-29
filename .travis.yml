@@ -13,3 +13,6 @@ cache:
 before_script:
   - git fetch
   - git checkout origin/master
+
+script:
+  - ./gradlew test
