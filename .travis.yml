@@ -14,5 +14,5 @@ script:
   - ./gradlew test
 
 after_success:
-  - pwd
+  - cd $HOME
   - bash <(curl -s https://codecov.io/bash)
