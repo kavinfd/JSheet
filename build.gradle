@@ -1,3 +1,5 @@
+import java.nio.file.Files
+
 plugins {
     id 'jacoco'
 }
@@ -24,8 +26,8 @@ dependencies {
 }
 
 sourceSets {
-    test{
-        java{
+    test {
+        java {
             srcDirs = ["src/test"]
         }
     }
@@ -41,4 +43,22 @@ jacocoTestReport {
         xml.enabled true
         html.enabled = true
     }
+}
+
+class Base64 extends DefaultTask {
+    String content = null
+
+    @TaskAction
+    def decode() {
+        if (content == null) {
+            throw new RuntimeException("base 64 content should not be null")
+        }
+        byte[] decoded = content.decodeBase64()
+        OutputStream stream = new FileOutputStream("./keys/google_sheet_service_acccount_key.p12")
+        stream.write(decoded)
+    }
+}
+
+task toBase64(type: Base64) {
+    content = System.getenv("base64AccountKey")
 }
