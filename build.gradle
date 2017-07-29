@@ -1,6 +1,5 @@
 plugins {
     id 'jacoco'
-    id 'com.github.kt3k.coveralls' version '2.6.3'
 }
 
 group 'com.jsheet'
@@ -34,21 +33,12 @@ sourceSets {
 
 jacoco {
     toolVersion = "0.7.6.201602180812"
-    reportsDir = file("$buildDir/customReports")
+    reportsDir = file("$buildDir/jscocoReports")
 }
 
 jacocoTestReport {
     reports {
         xml.enabled true
-        html.destination "${buildDir}/jacocoHtml"
+        html.enabled = true
     }
 }
-
-task moveTestReport (type: Copy) {
-    from("$buildDir/customReports/test/jacocoTestReport.xml")
-    into("$buildDir/reports/cobertura/")
-    rename { String fileName ->
-        fileName.replace('jacocoTestReport.xml', 'coverage.xml')
-    }
-}
-jacocoTestReport.finalizedBy(moveTestReport)

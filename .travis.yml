@@ -10,12 +10,8 @@ cache:
   directories:
   - $HOME/.gradle
 
-env:
-  global:
-    - secure: "j88M0r3T9T0VnKZvf42iFUkNNaIgTcmD9z1Pxhy0uHuM5Gls8Kf+JhzaMg2FoBz2Y/hhZnXT3lu90oQmUBD26vFdCVds3dqOGK5uFPWDmu3khSmxfyUrip4Ed2y9wahdAJxQoUZnwYGo3l6Irn8dfwlByrAqhjeqYQdGIC3ggqKLhXfqqoqFUIBNO7icsuX8Z0XyV47LWjo/xPYWFL8PNLB/sQkW4LJApGGANKxnrn53eAEnzYTR6ZQ3ogs9taNTDJqwKdtkpxLLaWVn2Z0EHB+jeVdYOLGVkzbFo49tv/8XfPKSQHotTmKBS5URgWPwqewL4GaI9yvR2uZqacXGOICP3oJYCTNWfMvWD08TkzIuKiTdXuntMdoxhb7E8Iams3dCshrrgcl0ctob+41ussAJtwayjjxSK3GzTO8pfgkuOjiNCTseqs6nHin00TMqsuj9MfcmYoSTfKj5uxh7s2uWuNZBbP0SimGKUUg6XDxG/5rbI+GXU5lUMVS/hWIwlZ4b8CzHhigwBBUdmSr8Ys49q4jdDLb2qqbWLAZLdE3/l+q/0npvD9pb5NnWnBMKp5XR+XPD6uiBeDDNGYwtTbTait9gBA4KNCFTxb90djp9DivJe6BmBQH83J9z0Cl+uqZr3oevtc6QAPxBDXaGPiCuHDzfck800LoBk9z9YTk="
-
 script:
   - ./gradlew test
 
 after_success:
-  - ./gradlew jacocoTestReport coveralls
+  - bash <(curl -s https://codecov.io/bash)
