@@ -12,6 +12,10 @@ cache:
   directories:
   - $HOME/.gradle
 
+before_install:
+  - openssl aes-256-cbc -K $encrypted_5880cf525281_key -iv $encrypted_5880cf525281_iv -in encryptedKeys.tar.enc -out encryptedKeys.tar -d
+  - tar xvf encryptedKeys.tar
+
 script:
   - ./gradlew test
   - ./gradlew jacocoTestReport
