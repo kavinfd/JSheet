@@ -14,10 +14,10 @@ import static org.junit.Assert.*;
 public class ConstraintUtilTest {
     @Test
     public void assertUnique() throws Exception {
-        assertThatThrownBy(()->ConstraintUtil.assertUnique(Arrays.asList(2,5,2,4,5,5,7,7), "fails"))
+        assertThatThrownBy(()->ConstraintUtil.assertUnique(Arrays.asList(2,5,2,4,5,5,7,7), "Numbers are not unique"))
                 .isInstanceOf(RuntimeException.class)
-                .hasMessage("fails : [2, 5, 7]");
-        ConstraintUtil.assertUnique(Arrays.asList(1,2,3,4,5,6,7,8), "passes");
+                .hasMessage("Numbers are not unique : [2, 5, 7]");
+        ConstraintUtil.assertUnique(Arrays.asList(1,2,3,4,5,6,7,8), "Numbers are not unique");
     }
 
 }
