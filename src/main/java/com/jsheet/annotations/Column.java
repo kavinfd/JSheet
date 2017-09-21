@@ -15,5 +15,4 @@ public @interface Column {
     String name() default "";
     boolean unique() default false;
     boolean nullable() default false;
-    int length() default 1024;
 }
